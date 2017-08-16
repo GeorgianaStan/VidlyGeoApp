@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using VidlyGeoApp.Models;
-using VidlyGeoApp.Repository;
 
 namespace VidlyGeoApp.Controllers
 {
@@ -23,7 +23,7 @@ namespace VidlyGeoApp.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            var customers = _context.Customers.ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
 
