@@ -1,15 +1,27 @@
-﻿using System.Web.Mvc;
-using VidlyGeoApp.Repository;
+﻿using System.Linq;
+using System.Web.Mvc;
+using VidlyGeoApp.Models;
 
 namespace VidlyGeoApp.Controllers
 {
     public class MoviesController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public MoviesController()
+        {
+             _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Movies
         public ViewResult Index()
         {
-            var moviesRep = new MoviesRepository();
-            var movies = moviesRep.GetMovies();
+            var movies = _context.Movies.ToList();
             return View(movies);
         }
     }
