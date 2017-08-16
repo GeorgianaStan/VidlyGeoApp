@@ -3,9 +3,9 @@ using VidlyGeoApp.Models;
 
 namespace VidlyGeoApp.Repository
 {
-    public static class MoviesRepository
+    public  class MoviesRepository
     {
-        public static IEnumerable<Movie> GetMovies()
+        public  IEnumerable<Movie> GetMovies()
         {
             return new List<Movie>()
             {

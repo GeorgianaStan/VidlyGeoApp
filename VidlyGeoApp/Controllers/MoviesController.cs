@@ -8,7 +8,8 @@ namespace VidlyGeoApp.Controllers
         // GET: Movies
         public ViewResult Index()
         {
-            var movies = MoviesRepository.GetMovies();
+            var moviesRep = new MoviesRepository();
+            var movies = moviesRep.GetMovies();
             return View(movies);
         }
     }
