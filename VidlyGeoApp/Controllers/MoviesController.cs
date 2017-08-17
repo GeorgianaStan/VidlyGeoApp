@@ -24,5 +24,15 @@ namespace VidlyGeoApp.Controllers
             var movies = _context.Movies.ToList();
             return View(movies);
         }
+
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
     }
 }
