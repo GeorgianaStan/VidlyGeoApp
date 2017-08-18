@@ -68,7 +68,7 @@ namespace VidlyGeoApp.Controllers
                 var movieInBd = _context.Movies.Single(m => m.Id == movie.Id);
                 movieInBd.Name = movie.Name;
                 movieInBd.ReleaseDate = movie.ReleaseDate;
-                movieInBd.Genre = movie.Genre;
+                movieInBd.GenreId = movie.GenreId;
                 movieInBd.NumberInStock = movie.NumberInStock;
             }
 
