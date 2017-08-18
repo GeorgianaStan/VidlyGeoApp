@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using VidlyGeoApp.Models;
+using VidlyGeoApp.ViewModels;
 
 namespace VidlyGeoApp.Controllers
 {
@@ -10,7 +12,7 @@ namespace VidlyGeoApp.Controllers
 
         public MoviesController()
         {
-             _context = new ApplicationDbContext();
+            _context = new ApplicationDbContext();
         }
 
         protected override void Dispose(bool disposing)
@@ -21,18 +23,55 @@ namespace VidlyGeoApp.Controllers
         // GET: Movies
         public ViewResult Index()
         {
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             return View(movies);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
             if (movie == null)
             {
                 return HttpNotFound();
             }
-            return View(movie);
+
+            var viewModel = new MovieFormViewModel()
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+
+            };
+            return View("MovieForm", viewModel);
         }
+
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var viewModel = new MovieFormViewModel()
+            {
+                Genres = genres
+            };
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if(movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInBd = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInBd.Name = movie.Name;
+                movieInBd.ReleaseDate = movie.ReleaseDate;
+                movieInBd.Genre= movie.Genre;
+                movieInBd.NumberInStock = movie.NumberInStock;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
+        }
+
     }
 }

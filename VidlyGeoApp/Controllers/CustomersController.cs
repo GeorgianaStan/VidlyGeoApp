@@ -29,16 +29,7 @@ namespace VidlyGeoApp.Controllers
             return View(customers);
         }
 
-        //public ActionResult Details(int id)
-        //{
-        //    var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
-
-        //    if (customer == null)
-        //        return HttpNotFound();
-
-        //    return View(customer);
-        //}
-
+        
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
