@@ -15,11 +15,11 @@ namespace VidlyGeoApp.Models
 
         public MembershipType MembershipType { get; set; }
 
-        [Required]
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
         
     }
