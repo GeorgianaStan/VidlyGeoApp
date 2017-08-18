@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web.Mvc;
 using VidlyGeoApp.Models;
@@ -57,7 +59,7 @@ namespace VidlyGeoApp.Controllers
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
-            if(movie.Id == 0)
+            if (movie.Id == 0)
             {
                 _context.Movies.Add(movie);
             }
@@ -66,10 +68,12 @@ namespace VidlyGeoApp.Controllers
                 var movieInBd = _context.Movies.Single(m => m.Id == movie.Id);
                 movieInBd.Name = movie.Name;
                 movieInBd.ReleaseDate = movie.ReleaseDate;
-                movieInBd.Genre= movie.Genre;
+                movieInBd.Genre = movie.Genre;
                 movieInBd.NumberInStock = movie.NumberInStock;
             }
+
             _context.SaveChanges();
+
             return RedirectToAction("Index", "Movies");
         }
 
