@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlTypes;
 
 namespace VidlyGeoApp.Models
 {
@@ -23,9 +24,15 @@ namespace VidlyGeoApp.Models
 
         
         [Display(Name = "Date Added")]
-        public DateTime DateAdded { get; set; }
+        private DateTime? dateAdded;
 
-        
+        public DateTime? DateAdded
+        {
+            get { return (dateAdded >= (DateTime)SqlDateTime.MinValue) ? dateAdded : (DateTime)SqlDateTime.MinValue; }
+            set { dateAdded = value; }
+        }
+
+
         [Display(Name = "Number in Stock")]
         public int NumberInStock { get; set; } 
 

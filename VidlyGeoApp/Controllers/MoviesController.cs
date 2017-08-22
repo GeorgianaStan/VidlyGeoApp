@@ -35,9 +35,8 @@ namespace VidlyGeoApp.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new MovieFormViewModel()
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
 
             };
@@ -55,24 +54,37 @@ namespace VidlyGeoApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
-            if (movie.Id == 0)
+            if (!ModelState.IsValid)
             {
-                _context.Movies.Add(movie);
+                var genres = _context.Genres.ToList();
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = genres
+                };
+                return View("MovieForm", viewModel);
             }
             else
             {
-                var movieInBd = _context.Movies.Single(m => m.Id == movie.Id);
-                movieInBd.Name = movie.Name;
-                movieInBd.ReleaseDate = movie.ReleaseDate;
-                movieInBd.GenreId = movie.GenreId;
-                movieInBd.NumberInStock = movie.NumberInStock;
+                if (movie.Id == 0)
+                {
+                    _context.Movies.Add(movie);
+                }
+                else
+                {
+                    var movieInBd = _context.Movies.Single(m => m.Id == movie.Id);
+                    movieInBd.Name = movie.Name;
+                    movieInBd.ReleaseDate = movie.ReleaseDate;
+                    movieInBd.GenreId = movie.GenreId;
+                    movieInBd.NumberInStock = movie.NumberInStock;
+                }
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Movies");
             }
-
-            _context.SaveChanges();
-
-            return RedirectToAction("Index", "Movies");
         }
 
     }
