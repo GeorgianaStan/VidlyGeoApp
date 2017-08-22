@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.Owin.Security.Provider;
 
 namespace VidlyGeoApp.Models
 {
