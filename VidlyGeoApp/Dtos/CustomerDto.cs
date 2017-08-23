@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using VidlyGeoApp.Models;
 
 namespace VidlyGeoApp.Dtos
 {

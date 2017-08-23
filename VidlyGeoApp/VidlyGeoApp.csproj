@@ -215,11 +215,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\CustomersController.cs" />
+    <Compile Include="Controllers\API\MoviesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,6 +276,10 @@
     <Compile Include="Migrations\201708220954394_SolveDateTime2ToDateTimeConflict.cs" />
     <Compile Include="Migrations\201708220954394_SolveDateTime2ToDateTimeConflict.Designer.cs">
       <DependentUpon>201708220954394_SolveDateTime2ToDateTimeConflict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708221522426_ModifyNameFromMovie.cs" />
+    <Compile Include="Migrations\201708221522426_ModifyNameFromMovie.Designer.cs">
+      <DependentUpon>201708221522426_ModifyNameFromMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -402,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708220954394_SolveDateTime2ToDateTimeConflict.resx">
       <DependentUpon>201708220954394_SolveDateTime2ToDateTimeConflict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708221522426_ModifyNameFromMovie.resx">
+      <DependentUpon>201708221522426_ModifyNameFromMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
