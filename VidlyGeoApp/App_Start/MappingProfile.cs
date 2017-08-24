@@ -10,13 +10,13 @@ namespace VidlyGeoApp.App_Start
         {
             //Domenin to Dto
             Mapper.CreateMap<Customer, CustomerDto>();
-            Mapper.CreateMap<Movie, MemebershipTypeDto>();
+            Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
 
             //Dto to Domain
             Mapper.CreateMap<CustomerDto, Customer>()
                 .ForMember(c => c.Id, opt => opt.Ignore());
-            Mapper.CreateMap<MemebershipTypeDto, Movie>()
+            Mapper.CreateMap<MovieDto, Movie>()
                 .ForMember(m => m.Id, opt => opt.Ignore());
             
         }
