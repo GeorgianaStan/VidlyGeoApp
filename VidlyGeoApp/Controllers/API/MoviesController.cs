@@ -19,9 +19,9 @@ namespace VidlyGeoApp.Controllers.API
         }
 
         //GET /api/movies Get all movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MemebershipTypeDto> GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return _context.Movies.ToList().Select(Mapper.Map<Movie, MemebershipTypeDto>);
         }
 
 
@@ -33,17 +33,17 @@ namespace VidlyGeoApp.Controllers.API
             if (movie == null)
                 return NotFound();
 
-            return Ok(Mapper.Map<Movie, MovieDto>(movie));
+            return Ok(Mapper.Map<Movie, MemebershipTypeDto>(movie));
         }
 
         //POST /api/movies Add a new movie(movie data in the request body)
         [HttpPost]
-        public IHttpActionResult CreateMovie(MovieDto movieDto)
+        public IHttpActionResult CreateMovie(MemebershipTypeDto movieDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var movie = Mapper.Map<MovieDto, Movie>(movieDto);
+            var movie = Mapper.Map<MemebershipTypeDto, Movie>(movieDto);
 
             _context.Movies.Add(movie);
             _context.SaveChanges();
@@ -55,7 +55,7 @@ namespace VidlyGeoApp.Controllers.API
 
         //PUT /api/movies/1 Update movie with ID 1 (movie data in the request body)
         [HttpPut]
-        public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
+        public IHttpActionResult UpdateMovie(int id, MemebershipTypeDto movieDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();

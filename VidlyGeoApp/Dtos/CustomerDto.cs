@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using VidlyGeoApp.Models;
 
 namespace VidlyGeoApp.Dtos
 {
@@ -15,7 +16,9 @@ namespace VidlyGeoApp.Dtos
 
         public byte MembershipTypeId { get; set; }
 
-       // [Min18YearsIfAMember]
+        public MembershipTypeDto  MembershipType { get; set; }
+
+        // [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
 
     }

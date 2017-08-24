@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace VidlyGeoApp.Dtos
 {
-    public class MovieDto
+    public class MemebershipTypeDto
     {
         public int Id { get; set; }
 
