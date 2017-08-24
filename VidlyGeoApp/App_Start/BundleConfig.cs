@@ -10,10 +10,10 @@ namespace VidlyGeoApp
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/bootstrap.js",
-                "~/Scripts/bootbox.js",
+                "~/scripts/bootbox.js",
                 "~/Scripts/respond.js",
-                "~/Scripts/DataTables/jquery.dataTables.js",
-                "~/Scripts/DataTables/dataTables.bootstrap.js"
+                "~/scripts/datatables/jquery.datatables.js",
+                "~/scripts/datatables/datatables.bootstrap.js"
 
             ));
 
@@ -27,7 +27,7 @@ namespace VidlyGeoApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap-lumen.css",
-                "~/content/DataTables/css/dataTables.bootstrap.css",
+                "~/content/datatables/css/datatables.bootstrap.css",
                 "~/Content/site.css"));
         }
     }
