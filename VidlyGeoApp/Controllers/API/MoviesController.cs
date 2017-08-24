@@ -6,6 +6,7 @@ using System.Web.Http;
 using AutoMapper;
 using VidlyGeoApp.Dtos;
 using VidlyGeoApp.Models;
+using System.Data.Entity;
 
 namespace VidlyGeoApp.Controllers.API
 {
@@ -19,9 +20,13 @@ namespace VidlyGeoApp.Controllers.API
         }
 
         //GET /api/movies Get all movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IHttpActionResult GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movieDto = _context.Movies
+                .Include(m => m.Genre)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
+            return Ok(movieDto);
         }
 
 
