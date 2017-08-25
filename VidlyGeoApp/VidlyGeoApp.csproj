@@ -283,9 +283,13 @@
     <Compile Include="Migrations\201708221522426_ModifyNameFromMovie.Designer.cs">
       <DependentUpon>201708221522426_ModifyNameFromMovie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708250842226_SeedUsers.cs" />
-    <Compile Include="Migrations\201708250842226_SeedUsers.Designer.cs">
-      <DependentUpon>201708250842226_SeedUsers.cs</DependentUpon>
+    <Compile Include="Migrations\201708250916186_SeedUsers.cs" />
+    <Compile Include="Migrations\201708250916186_SeedUsers.Designer.cs">
+      <DependentUpon>201708250916186_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708250932002_AddDrivingLicenseToApplicationUser.cs" />
+    <Compile Include="Migrations\201708250932002_AddDrivingLicenseToApplicationUser.Designer.cs">
+      <DependentUpon>201708250932002_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -296,6 +300,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -536,9 +541,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -594,8 +600,11 @@
     <EmbeddedResource Include="Migrations\201708221522426_ModifyNameFromMovie.resx">
       <DependentUpon>201708221522426_ModifyNameFromMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708250842226_SeedUsers.resx">
-      <DependentUpon>201708250842226_SeedUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708250916186_SeedUsers.resx">
+      <DependentUpon>201708250916186_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708250932002_AddDrivingLicenseToApplicationUser.resx">
+      <DependentUpon>201708250932002_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
