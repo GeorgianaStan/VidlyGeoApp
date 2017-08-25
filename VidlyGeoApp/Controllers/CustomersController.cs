@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using VidlyGeoApp.Models;
 using VidlyGeoApp.ViewModels;
@@ -23,12 +22,10 @@ namespace VidlyGeoApp.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            //return View(customers);
             return View();
         }
 
-        
+
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -37,7 +34,7 @@ namespace VidlyGeoApp.Controllers
                 Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
-            return View("CustomerForm",viewModel);
+            return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
@@ -70,7 +67,7 @@ namespace VidlyGeoApp.Controllers
                 customerInDb.Birthdate = customer.Birthdate;
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
-                
+
             }
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
@@ -89,7 +86,7 @@ namespace VidlyGeoApp.Controllers
             {
                 Customer = customer,
                 MembershipTypes = _context.MembershipTypes.ToList()
-                
+
             };
             return View("CustomerForm", viewModel);
 

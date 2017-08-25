@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using VidlyGeoApp.Models;
 using VidlyGeoApp.ViewModels;
