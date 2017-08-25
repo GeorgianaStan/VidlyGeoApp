@@ -1,7 +1,8 @@
 namespace VidlyGeoApp.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
-
+    
     public partial class SeedUsers : DbMigration
     {
         public override void Up()
@@ -13,7 +14,6 @@ INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash]
 INSERT INTO [dbo].[AspNetRoles] ([Id], [Name]) VALUES (N'71419128-3639-4fda-a535-312ab91499d9', N'CanManageMovies')
 
 INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'15a20184-41e6-4cba-a103-100e988cc6e3', N'71419128-3639-4fda-a535-312ab91499d9')
-INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'ea71ee2b-0a40-4dbe-a619-02899ff3254c', N'71419128-3639-4fda-a535-312ab91499d9')
 ");
         }
         
