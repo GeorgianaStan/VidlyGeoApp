@@ -53,9 +53,9 @@ namespace VidlyGeoApp
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "778346772347598",
+               appSecret: "132462a0d331d9fe5bace1036383f839");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
