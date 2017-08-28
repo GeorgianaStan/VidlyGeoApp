@@ -4,7 +4,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using VidlyGeoApp.Models;
+using VidlyGeoApp.Models.IdentityModels;
+using VidlyGeoApp.App_Start.IdentityConfig;
 
 namespace VidlyGeoApp
 {

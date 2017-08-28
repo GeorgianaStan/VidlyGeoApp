@@ -1,11 +1,13 @@
-﻿using System.Linq;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using VidlyGeoApp.Models;
+using VidlyGeoApp.ViewModels.Account;
+using VidlyGeoApp.App_Start.IdentityConfig;
+using VidlyGeoApp.Models.IdentityModels;
 
 namespace VidlyGeoApp.Controllers
 {
@@ -152,7 +154,8 @@ namespace VidlyGeoApp.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    DrivingLicense = model.DrivingLicense
+                    DrivingLicense = model.DrivingLicense,
+                    Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -373,7 +376,8 @@ namespace VidlyGeoApp.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    DrivingLicense = model.DrivingLicense
+                    DrivingLicense = model.DrivingLicense,
+                    Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)

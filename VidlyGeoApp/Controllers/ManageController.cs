@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using VidlyGeoApp.Models;
+using VidlyGeoApp.App_Start.IdentityConfig;
 
 namespace VidlyGeoApp.Controllers
 {

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using VidlyGeoApp.Models;
+using VidlyGeoApp.Models.IdentityModels;
 using VidlyGeoApp.ViewModels;
 
 namespace VidlyGeoApp.Controllers

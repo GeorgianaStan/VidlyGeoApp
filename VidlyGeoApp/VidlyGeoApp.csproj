@@ -211,7 +211,10 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig\ApplicationSignInManager.cs" />
+    <Compile Include="App_Start\IdentityConfig\ApplicationUserManager.cs" />
+    <Compile Include="App_Start\IdentityConfig\EmailService.cs" />
+    <Compile Include="App_Start\IdentityConfig\SmsService.cs" />
     <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -294,12 +297,17 @@
     <Compile Include="Migrations\201708250932002_AddDrivingLicenseToApplicationUser.Designer.cs">
       <DependentUpon>201708250932002_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708251455388_AddPhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\201708251455388_AddPhoneToApplicationUser.Designer.cs">
+      <DependentUpon>201708251455388_AddPhoneToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="Models\IdentityModels\ApplicationUser.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\IdentityModels\ApplicationDbContext.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -307,7 +315,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
+    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
+    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
@@ -610,6 +626,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708250932002_AddDrivingLicenseToApplicationUser.resx">
       <DependentUpon>201708250932002_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708251455388_AddPhoneToApplicationUser.resx">
+      <DependentUpon>201708251455388_AddPhoneToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

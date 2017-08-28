@@ -5,6 +5,7 @@ using AutoMapper;
 using VidlyGeoApp.Dtos;
 using VidlyGeoApp.Models;
 using System.Data.Entity;
+using VidlyGeoApp.Models.IdentityModels;
 
 namespace VidlyGeoApp.Controllers.API
 {
