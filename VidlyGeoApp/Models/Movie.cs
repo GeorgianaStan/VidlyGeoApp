@@ -33,9 +33,11 @@ namespace VidlyGeoApp.Models
             set { dateAdded = value; }
         }
 
-
         [Display(Name = "Number in Stock")]
-        public int NumberInStock { get; set; } 
+        [Range(1, 20)]
+        public int NumberInStock { get; set; }
+
+        public byte NumberAvailable { get; set; }
 
     }
 }
