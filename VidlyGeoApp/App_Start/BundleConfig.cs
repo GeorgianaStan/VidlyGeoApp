@@ -28,6 +28,7 @@ namespace VidlyGeoApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap-lumen.css",
+                "~/Content/bootstrap-theme.css",
                 "~/Content/DataTables/css/dataTables.bootstrap.css",
                 "~/Content/typeahead.css",
                 "~/Content/toastr.css",
